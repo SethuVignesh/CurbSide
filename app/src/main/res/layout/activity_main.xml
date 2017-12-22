@@ -4,18 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_dark_default"
     tools:context="com.theatro.curbside.MainActivity">
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Getting started"
+        android:background="@color/colorPrimary"
+        android:text="    Getting started      "
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         tools:layout_editor_absoluteX="118dp"
         tools:layout_editor_absoluteY="410dp"
-        android:layout_marginBottom="71dp"
+        android:layout_marginBottom="118dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -24,49 +28,63 @@
         app:srcCompat="@drawable/logo"
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="42dp"
-        android:layout_marginTop="50dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/imageView5"
         android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="82dp"
         android:layout_height="79dp"
+        android:layout_marginTop="48dp"
         app:srcCompat="@drawable/curb"
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="134dp"
-        android:layout_marginTop="17dp"
         android:layout_below="@+id/imageView2"
         android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp" />
+        android:layout_alignStart="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginTop="13dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Curbside"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="30sp"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
         tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="153dp"
-        android:layout_marginTop="21dp"
-        android:layout_alignTop="@+id/imageView3"
-        android:layout_toRightOf="@+id/imageView3"
-        android:layout_toEndOf="@+id/imageView3" />
+        tools:layout_editor_absoluteY="153dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:text="DEMO - NEW \n Innovation in \n click and collect"
         android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="276dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/imageView3"
-        android:layout_centerHorizontal="true" />
+        tools:layout_editor_absoluteY="276dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/imageView2"
+        android:layout_toRightOf="@+id/imageView2"
+        android:padding="10dp"
+        android:src="@drawable/setting" />
 
 </RelativeLayout>

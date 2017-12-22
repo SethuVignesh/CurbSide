@@ -26,7 +26,9 @@
             android:layout_toEndOf="@+id/button3"
             android:layout_toRightOf="@+id/button3"
             android:layout_weight="1"
+            android:background="#c1773f"
             android:text="Place Single\n Item Order"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             tools:layout_editor_absoluteX="224dp"
             tools:layout_editor_absoluteY="416dp" />
 
@@ -37,12 +39,16 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/button4"
+            android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
             android:text="Place multi Item\n Cosmetic order"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             tools:layout_editor_absoluteX="60dp"
-            tools:layout_editor_absoluteY="416dp"
-            android:layout_weight="1" />
+            tools:layout_editor_absoluteY="416dp" />
     </LinearLayout>
 
     <TextView
