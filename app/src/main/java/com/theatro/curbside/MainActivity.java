@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    EditText url, userName;
-    String urlText, userNameText;
+    EditText url, userName,email;
+    String urlText, userNameText,emailText;
     String roleText;
 
     public void showDialogUI() {
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setTitle("Settings");
         url = (EditText) dialog.findViewById(R.id.editText1);
         userName = (EditText) dialog.findViewById(R.id.editText2);
+        email = (EditText) dialog.findViewById(R.id.editText3);
 
 
         final String[] role = {"Select role", "VIP", "Normal"};
@@ -134,7 +135,16 @@ public class MainActivity extends AppCompatActivity {
                     userName.setError("invalid name");
                     return;
                 }
+                emailText = email.getText().toString().trim();
 
+                if(emailText==null || emailText.isEmpty()){}else {
+                    if(Utility.emailValidator(emailText.toString())){
+                        Utility.saveMail(emailText, MainActivity.this);
+                    }else{
+                        email.setError("invalid mail");
+                        return;
+                    }
+                }
                 if (roleText != null && roleText.isEmpty() == false && roleText.equalsIgnoreCase("Select role") == false) {
                     Utility.saveRole(roleText, MainActivity.this);
                     dialog.dismiss();

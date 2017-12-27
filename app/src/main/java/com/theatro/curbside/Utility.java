@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import java.io.File;
 import java.net.InetAddress;
 import java.util.UUID;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -25,6 +26,7 @@ public class Utility {
     private static String LOG_ON_URL = "log_on_url";
     private static String NAME = "name";
     private static String ROLE = "role";
+    private static String MAIL = "mail";
     private static String LOG_SIZE = "log_size";
     private static String APP_UNIQUE_ID = "app_unique_id";
     static AlertDialog adb;
@@ -161,6 +163,19 @@ public class Utility {
         prefrencesEditor.commit();
     }
 
+    public static synchronized String getMail(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+        return preferences.getString(MAIL, null);
+    }
+
+    public synchronized static void saveMail(String role, Context context) {
+//        appId="13.13.13.25:2618";
+        SharedPreferences preferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefrencesEditor = preferences.edit();
+        prefrencesEditor.putString(MAIL, role);
+        prefrencesEditor.commit();
+    }
+
     public static synchronized String getLogOn(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         return preferences.getString(LOG_ON_URL, null);
@@ -261,17 +276,33 @@ public class Utility {
         }
         return uniqueId;
     }
+
     public static void allowNetworkOnMainthread() {
         //This is to override permission issue for running network operations on main thread.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
     }
+
     public static boolean validateUrl(String url) {
         if (url.trim().isEmpty() == false) {
             allowNetworkOnMainthread();
             return isInternetAvailable(url.trim());
         }
         return false;
+    }
+
+    private static final String EMAIL_REGEX =
+            "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +
+                    "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    private static final Pattern EMAIL_PATTERN =
+            Pattern.compile(EMAIL_REGEX);
+
+    public static boolean emailValidator(String email) {
+        if (email == null)
+            return false;
+
+        Matcher matcher = EMAIL_PATTERN.matcher(email);
+        return matcher.matches();
     }
 
     public static boolean isInternetAvailable(String serverUrl) {
@@ -296,5 +327,6 @@ public class Utility {
 //        uniqueID = uniqueID.substring(0, 12);
         return uniqueID;
     }
+
 
 }

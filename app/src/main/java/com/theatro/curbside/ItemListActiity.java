@@ -24,13 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import com.theatro.curbside.cloudconnection.ApiClient;
-//import com.theatro.curbside.cloudconnection.ApiInterface;
-
-//import retrofit2.Call;
-//import retrofit2.Callback;
-//import retrofit2.Response;
-
 public class ItemListActiity extends AppCompatActivity {
 
     @Override
@@ -79,9 +72,11 @@ public class ItemListActiity extends AppCompatActivity {
             if (type.equalsIgnoreCase("single")) {
 
                 JSONObject customer = new JSONObject();
-                customer.put("id", "NS-34334323");
+//                customer.put("id", "NS-34334323");
                 customer.put("name", Utility.getName(ItemListActiity.this));
                 customer.put("type", Utility.getRole(ItemListActiity.this));
+                customer.put("email", Utility.getMail(ItemListActiity.this));
+
                 full.put("customer", customer);
 
                 JSONObject order = new JSONObject();
