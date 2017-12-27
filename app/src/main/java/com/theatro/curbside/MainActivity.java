@@ -108,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+        if (Utility.getMail(MainActivity.this) != null) {
+            email.setText(Utility.getMail(MainActivity.this));
+        }
 
         dialog.show();
 
