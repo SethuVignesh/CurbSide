@@ -101,6 +101,9 @@ String orderId="";
     public void onClose(WebSocketCloseNotification code, String reason) {
         mConnection = null;
         Log.d("WebsocketnService", "onClose");
+        Intent intent = new Intent(Utility.WEBSOCKET_MESSAGE);
+        intent.putExtra("ws", "closed");
+        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
     }
 
     @Override

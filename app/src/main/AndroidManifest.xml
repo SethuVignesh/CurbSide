@@ -8,8 +8,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -41,14 +40,17 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
+
         <service
             android:name=".WebSocketService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
         <activity
             android:name=".ItemList"
             android:label="@string/title_activity_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LastActivity"></activity>
     </application>
 
 </manifest>

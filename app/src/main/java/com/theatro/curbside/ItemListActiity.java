@@ -43,7 +43,6 @@ public class ItemListActiity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new ApiCalls("multiple").execute();
-
             }
         });
     }
@@ -150,6 +149,7 @@ public class ItemListActiity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
             placeorder(type);
             return null;
         }
